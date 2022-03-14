@@ -1,5 +1,8 @@
 
 # Baby step - Giant step algorithm
+
+Writtten by: Milan Pavlović, LogN
+
 This is another blog about topics that we in LogN team meet while doing research in area of Zero Knowladge. Point of interest in this blog is Baby step - Giant step algorithm.
 
 * Intro: Elliptic curves and DLP
