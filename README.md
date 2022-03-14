@@ -60,7 +60,7 @@ $$438=17^x\ (\textrm {mod}\ 509),$$
 i.e. our task is to solve DLP.
 
 Following presented algorithm, we first calculate ceiling $k=[\sqrt{509}]+1=23$. Then, we proceed to Baby steps:
-$$g_i = 17^i,\ 0\leq i < 23.$$
+$$g_i = 17^i,\ 0\leq i < k.$$
 Values $g_i$ are stored in array $X$ which is given in table below in format $i: 17^i\ (\textrm{mod}\ 509).$
 
 
@@ -76,7 +76,7 @@ Values $g_i$ are stored in array $X$ which is given in table below in format $i:
 | 7: 179            | 15: 67  |         |
 
 Next step is Giant step. We calculate
-$$y_j = 438\cdot g^{-23j},\ 0\leq j< k,$$
+$$y_j = 438\cdot g^{-k\cdot j},\ 0\leq j< k,$$
 and after each calculation try to find same value in table above. In this example, calculations gives us:
 
 $y_0 = 438$, which is not value from table; 
@@ -86,6 +86,8 @@ $y_1 = 199$, which also is not found in table;
 $y_2=238$ is in table. We memorize index of $y$, that is $j=2$.
 
 Value $238$ is calculated in Baby step for $i=13$, so solution to our DLP is $x=13+2\cdot 23=59.$ You can check that $17^{59}=438\ (\textrm{mod}\ 509)$ indeed.
+
+Optimization can be made if one knows that $g$ is in some subgroup of $\mathbb{F}_p$. As we know here that $g$ is in subgroup $G$ of order 127, order of that subgroup can be used for calculating ceiling $k=[\sqrt{127}]+1=12$ instead of order 509 of whole group which yields $k=[\sqrt{509}]+1=23$. This optimization has its own cost, we have to determine order of $g$.
 ## Conclusion
 
 There are a lot applications of Baby step - Giant step algorithm, and some modifications. One limitation of algorithm is that it has $\mathcal{O}(\sqrt{p})$ space complexity, beside $\mathcal{O}(\sqrt{p})$ time complexity. It's a big drawback and reason why DLP is hard for todays computers. One optimization in that direction is Pollard's Rho algorithm. Other generalization is Pohlig-Hellman algorithm which is used when integer $p$ in DLP is not prime. This algorithm reduces the DLP from a group of composite order to subgroups of prime order, then solve DLP in each subgroup. Chinese Remainder Theorem is used to reconstruct solution of original problem. One of important conclusions from Pohlig-Hellman algorithm is that DLP in group $G$ is as hard as it is DLP in its largest subgroup of prime order (which dominate in time and space complexity). This idea lies in known Pohlig Hellman small subgroup attacks.

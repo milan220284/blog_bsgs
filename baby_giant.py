@@ -26,7 +26,7 @@ def babyGiant(g, y, p, option = False):
     for j in range(k):
         tmp = (y * pow(inv, j, p)) % p
         if option: Y[j] = tmp
-        
+
         if tmp in X:
             if option: print("Y: ", Y[:j+1])
             return j * k + X.index(tmp)
