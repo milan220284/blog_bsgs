@@ -33,4 +33,4 @@ def babyGiant(g, y, p, option = False):
     # Solution not found
     return None
 
-print(babyGiant(17, 438, 509, True))
+print(babyGiant(17, 55, 509, False))
