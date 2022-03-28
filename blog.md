@@ -3,7 +3,7 @@
 
 Written by: Milan Pavlović, LogN
 
-This is another blog about topics that we in LogN team meet while doing research in area of Zero Knowladge. Point of interest in this blog is Baby step - Giant step algorithm.
+This is another blog about topics that we at LogN team meet while doing research in area of Zero Knowladge. Point of interest in this blog is Baby step - Giant step algorithm.
 
 * Intro: Elliptic curves and DLP
 * Algorithm
@@ -36,7 +36,7 @@ What makes elliptic curves useful in cryptography is that, as of today, the disc
 
 We'll now describe algorithm used to solve DLP, which is, due to Daniel Shanks, called Baby step - Giant step. This algorithm can be applied to any finite cyclic abelian group. Depending of use case some modifications are posible.
 
-Asume we have public cyclic group $G=<g>$ of prime order $p$. Given $y\in G$, we are asked to find value $x\in\mathbb{Z}_p$ such that $y=g^x\ (\textrm {mod}\ p)$.
+Asume we have public cyclic group $G=\langle g \rangle$ of prime order $p$. Given $y\in G$, we are asked to find value $x\in\mathbb{Z}_p$ such that $y=g^x\ (\textrm {mod}\ p)$.
 
 Idea behind algorithm is often encountered idea of divide and conquare. We first calculate $k=[\sqrt{p}]+1$. Then we write:
 $$x=x_0+x_1\cdot k,$$
